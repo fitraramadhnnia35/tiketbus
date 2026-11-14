@@ -2,6 +2,13 @@
 #include <iostream>
 using namespace std;
 
+void menu() {
+    cout << "===== TIKET BUS MALANG =====" << endl;
+    cout << "1. Malang - Surabaya Rp35000" << endl;
+    cout << "2. Malang - Pasuruan Rp20000" << endl;
+    cout << "3. Malang - Jombang Rp25000" << endl;
+}
+
 void pesanTiket(string tujuan, int harga) {
     int jumlah, total;
 
@@ -17,26 +24,33 @@ void pesanTiket(string tujuan, int harga) {
 
 int main() {
     int pilih;
+    char ulang;
 
-    cout << "===== TIKET BUS MALANG =====" << endl;
-    cout << "1. Malang - Surabaya Rp35000" << endl;
-    cout << "2. Malang - Pasuruan Rp20000" << endl;
-    cout << "3. Malang - Jombang Rp25000" << endl;
-    cout << "Pilih tujuan: ";
-    cin >> pilih;
+    do {
+        menu();
 
-    if (pilih == 1) {
-        pesanTiket("Surabaya", 35000);
-    }
-    else if (pilih == 2) {
-        pesanTiket("Pasuruan", 20000);
-    }
-    else if (pilih == 3) {
-        pesanTiket("Jombang", 25000);
-    }
-    else {
-        cout << "Pilihan tidak tersedia";
-    }
+        cout << "Pilih tujuan: ";
+        cin >> pilih;
+
+        if (pilih == 1) {
+            pesanTiket("Surabaya", 35000);
+        }
+        else if (pilih == 2) {
+            pesanTiket("Pasuruan", 20000);
+        }
+        else if (pilih == 3) {
+            pesanTiket("Jombang", 25000);
+        }
+        else {
+            cout << "Pilihan tidak tersedia" << endl;
+        }
+
+        cout << "Pesan tiket lagi? (y/Y): ";
+        cin >> ulang;
+
+    } while (ulang == 'y' || ulang == 'Y');
+
+    cout << "Terima kasih sudah memesan tiket!" << endl;
 
     system("pause");
     return 0;
